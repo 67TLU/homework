@@ -1,40 +1,22 @@
 # AI Usage Report
 
 ## 1. Mục đích sử dụng AI
-AI được tích hợp để nâng cao trải nghiệm người dùng và hỗ trợ quá trình quyết định trong hệ thống CampusMind.
+AI được sử dụng để hỗ trợ việc:
+- Tạo nội dung mẫu cho từng màn hình
+- Tạo mô tả dịch vụ, gợi ý nội dung
+- Tối ưu copywriting cho người dùng
+- Đề xuất cấu trúc UI và flow người dùng
 
-## 2. Các loại AI được sử dụng
-### AI-1: Support Navigator
-- Mục tiêu: định hướng người dùng đến dịch vụ phù hợp
-- Vị trí: màn hình tương tác trong dashboard hoặc landing page
-- Lợi ích: giúp sinh viên xác định nhu cầu và tiết kiệm thời gian
+## 2. Cách AI hỗ trợ trong dự án
+- Tạo copy cho trang chủ và các section
+- Đề xuất tên dịch vụ và mô tả ngắn
+- Tạo mô hình logic AI Navigator
+- Thiết kế layout thống nhất theo design system
 
-### AI-2: Self-help Recommendation
-- Mục tiêu: gợi ý tài nguyên phù hợp với tình huống của sinh viên
-- Vị trí: thư viện self-help
-- Lợi ích: tăng khả năng tự phục hồi và tiếp cận tài nguyên
+## 3. Hạn chế cần lưu ý
+- Nội dung AI cần được kiểm tra lại về tính phù hợp và độ chính xác
+- Không thay thế hoàn toàn UX review của người thực hiện
+- Dữ liệu nên là mock data và không dùng dữ liệu nhạy cảm
 
-### AI-3: Consultation Notes Summary
-- Mục tiêu: tóm tắt nội dung buổi tư vấn
-- Vị trí: màn hình chuyên viên
-- Lợi ích: giúp lưu trữ, tìm kiếm và thống nhất thông tin
-
-## 3. Cách AI hỗ trợ quy trình
-- Gợi ý dịch vụ dựa trên câu trả lời người dùng
-- Phân loại mức độ ưu tiên hỗ trợ
-- Tạo gợi ý tài nguyên theo nhu cầu
-- Tóm tắt thông tin sau khi tư vấn
-
-## 4. Lợi ích
-- Tăng hiệu quả định hướng
-- Giảm thời gian tìm kiếm
-- Tăng tính cá nhân hóa
-- Hỗ trợ cả người dùng lẫn chuyên viên
-
-## 5. Rủi ro và lưu ý
-- AI chỉ là công cụ hỗ trợ, không thay thế chuyên môn con người
-- Cần kiểm tra lại nội dung gợi ý trước khi áp dụng
-- Nên giữ nguyên lịch sử và đóng góp của người dùng
-
-## 6. Kết luận
-AI nên được dùng như một trợ lý hỗ trợ quyết định, không phải thay thế toàn bộ quy trình tư vấn và quản lý nội dung.
+## 4. Kết luận
+AI giúp rút ngắn thời gian phát triển prototype, nhưng cần có kiểm duyệt kỹ trước khi đưa vào báo cáo cuối cùng.

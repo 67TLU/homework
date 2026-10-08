@@ -1,39 +1,30 @@
-# CampusMind – Project Proposal
+# CampusMind Project Proposal
 
-## 1. Tên dự án
-CampusMind – Student Wellbeing Hub
+## 1. Mục tiêu dự án
+CampusMind là một nền tảng hỗ trợ sức khỏe tinh thần cho sinh viên, tập trung vào việc giúp người dùng tiếp cận dịch vụ tư vấn, tài nguyên tự hỗ trợ và các công cụ điều hướng phù hợp với nhu cầu cá nhân.
 
-## 2. Mục tiêu dự án
-Xây dựng một nền tảng hỗ trợ sức khỏe tinh thần cho sinh viên, giúp:
-- Tìm hiểu các dịch vụ hỗ trợ phù hợp
-- Đặt lịch tư vấn hoặc hỗ trợ nhanh
-- Truy cập tài nguyên tự giúp mình
-- Quản lý hoạt động hỗ trợ từ phía chuyên viên và admin
+## 2. Vấn đề cần giải quyết
+Sinh viên thường gặp áp lực học tập, lo âu, mất phương hướng và khó tìm được dịch vụ hỗ trợ đúng thời điểm. Nền tảng này giúp giảm rào cản thông tin và tạo luồng hỗ trợ rõ ràng.
 
-## 3. Vấn đề cần giải quyết
-Sinh viên thường gặp khó khăn trong việc:
-- Không biết nên tìm sự hỗ trợ nào
-- Không biết dịch vụ nào phù hợp với nhu cầu cá nhân
-- Khó tiếp cận với chuyên viên, lịch hẹn và tài liệu tự giúp đỡ
-- Thiếu một hệ thống tập trung và dễ theo dõi
-
-## 4. Người dùng chính
+## 3. Đối tượng người dùng
 - Sinh viên
 - Chuyên viên tư vấn
 - Quản trị viên hệ thống
-- Khách truy cập chưa đăng nhập
+- Khách truy cập
 
-## 5. Giải pháp đề xuất
-CampusMind cung cấp:
-- Trang giới thiệu và dịch vụ hỗ trợ
-- Hồ sơ chuyên viên và lịch trống
-- Tài nguyên tự giúp đỡ
-- Luồng đặt lịch dễ theo dõi
-- Bảng điều khiển cho admin/chuyên viên
-- Tính năng AI gợi ý hỗ trợ theo tình huống
+## 4. Tính năng chính
+- Khám phá dịch vụ hỗ trợ
+- Đặt lịch tư vấn 1-1
+- Theo dõi lịch hẹn
+- Truy cập tài nguyên self-help
+- Hỗ trợ AI định hướng dịch vụ
+- Quản lý dữ liệu cho admin
+
+## 5. Công nghệ
+- HTML, CSS, JavaScript
+- Tailwind CSS
+- Lucide Icons
+- Mock data dạng front-end
 
 ## 6. Kết quả mong muốn
-- Người dùng dễ dàng tìm đúng dịch vụ
-- Tăng hiệu quả đặt lịch và quản lý lịch hẹn
-- Mỗi vai trò có không gian riêng, rõ ràng
-- Hệ thống dễ mở rộng cho tương lai
+Tạo ra một prototype trực quan, dễ sử dụng, có flow rõ ràng và phù hợp cho báo cáo BTL.
