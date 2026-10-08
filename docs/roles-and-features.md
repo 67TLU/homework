@@ -1,60 +1,32 @@
 # Roles and Features
 
-## 1. Khách (Guest)
-Mục tiêu:
-- Xem trang chủ, dịch vụ, nguồn tài nguyên
-- Khám phá chuyên viên
-- Tìm hiểu nền tảng mà không cần đăng nhập
-
-Chức năng:
-- Trang giới thiệu
-- Danh sách dịch vụ
-- Thư viện tài nguyên self-help
-- Hồ sơ chuyên viên
-- Chuyển hướng đến đăng nhập hoặc đặt lịch
-
-## 2. Sinh viên
-Mục tiêu:
-- Tìm dịch vụ phù hợp
+## 1. Sinh viên
+- Xem trang chủ và các dịch vụ chính
+- Kiểm tra danh sách chuyên viên
 - Đặt lịch tư vấn
-- Theo dõi lịch hẹn
-- Tiếp cận tài nguyên hỗ trợ
+- Quản lý lịch hẹn cá nhân
+- Truy cập self-help resources
+- Nhận gợi ý từ AI Navigator
 
-Chức năng:
-- Dashboard sinh viên
-- AI hỗ trợ định hướng dịch vụ
-- Luồng đặt lịch 4 bước
-- Quản lý lịch hẹn
-- Gợi ý tài nguyên phù hợp theo nhu cầu
-
-## 3. Chuyên viên tư vấn
-Mục tiêu:
-- Quản lý lịch làm việc
-- Theo dõi danh sách sinh viên cần hỗ trợ
-- Ghi chú sau buổi tư vấn
-- Duyệt và xử lý lịch hẹn
-
-Chức năng:
-- Lịch tuần
-- Danh sách hàng đợi
+## 2. Chuyên viên
+- Xem lịch tuần
+- Duyệt yêu cầu đặt lịch
 - Ghi chú buổi tư vấn
-- Bản tóm tắt AI sau buổi hỗ trợ
+- Theo dõi số lượng sinh viên hỗ trợ
 
-## 4. Quản trị viên (Admin)
-Mục tiêu:
-- Quản lý hệ thống tổng thể
+## 3. Quản trị viên
+- Quản lý danh mục dịch vụ
 - Thêm/sửa/xóa dịch vụ
-- Theo dõi hoạt động người dùng
-- Duy trì chất lượng và tính nhất quán của hệ thống
+- Theo dõi báo cáo hệ thống
+- Kiểm soát quyền truy cập và trạng thái hoạt động
 
-Chức năng:
-- Dashboard admin
-- CRUD dịch vụ
-- Quản lý người dùng
-- Theo dõi mức độ hoạt động
-- Giám sát chất lượng hỗ trợ
+## 4. Khách
+- Khám phá marketing landing page
+- Xem thông tin chung
+- Duyệt hồ sơ chuyên viên
+- Đọc tài nguyên giới thiệu
 
-## 5. Chức năng AI tích hợp
-- AI-1: Support Navigator – gợi ý dịch vụ phù hợp
-- AI-2: Self-help Recommendation – gợi ý tài nguyên phù hợp
-- AI-3: Consultation Notes Summary – tóm tắt nội dung buổi tư vấn
+## 5. Các tính năng AI
+- AI-1: Support Navigator
+- AI-2: Resource Recommender
+- AI-3: Session Note Summarizer
