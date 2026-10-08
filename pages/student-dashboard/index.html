@@ -1,12 +1,16 @@
-<!--
-  STUDENT DASHBOARD PAGE
-  Mô tả: Không gian cá nhân sinh viên.
--->
-<div class="page-shell page-student-dashboard">
-  <h2>Bảng điều khiển sinh viên</h2>
-  <div class="stats-grid">
-    <article>Lịch hẹn</article>
-    <article>Tài nguyên đã lưu</article>
-    <article>AI recommendation</article>
-  </div>
-</div>
+
+ * COUNSELOR PAGE - Module JS
+ */
+
+const CounselorPage = {
+  init() {
+    console.log('Counselor page initialized');
+  }
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => CounselorPage.init());
+} else {
+  CounselorPage.init();
+}
+

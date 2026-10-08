@@ -1,13 +1,18 @@
-<!--
-  STUDENT BOOKING PAGE
-  Mô tả: Luồng đặt lịch 4 bước.
--->
-<div class="page-shell page-student-booking">
-  <h2>Đặt lịch tư vấn</h2>
-  <ol>
-    <li>Chọn dịch vụ</li>
-    <li>Chọn chuyên viên</li>
-    <li>Chọn thời gian</li>
-    <li>Xác nhận</li>
-  </ol>
-</div>
+
+ * STUDENT DASHBOARD PAGE - Module JS
+ */
+
+const StudentDashboardPage = {
+  init() {
+    console.log('Student Dashboard page initialized');
+  }
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => StudentDashboardPage.init());
+} else {
+  StudentDashboardPage.init();
+}
+
+
+

@@ -1,8 +1,16 @@
-<!--
-  403 PAGE
-  Mô tả: Trang bị cấm quyền truy cập.
--->
-<div class="page-shell page-403">
-  <h2>403</h2>
-  <p>Bạn không có quyền truy cập khu vực này.</p>
-</div>
+
+/**
+ * 404 PAGE - Module JS
+ */
+
+const NotFoundPage = {
+  init() {
+    console.log('404 page initialized');
+  }
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => NotFoundPage.init());
+} else {
+  NotFoundPage.init();
+}

@@ -1,0 +1,27 @@
+<div class="max-w-md mx-auto my-8 space-y-6">
+  <div class="bg-white rounded-3xl p-8 border border-card-border shadow-sm space-y-6">
+    <div class="text-center space-y-2">
+      <div class="w-12 h-12 rounded-2xl bg-sage-deep text-white flex items-center justify-center mx-auto mb-2">
+        <i data-lucide="lock" class="w-6 h-6"></i>
+      </div>
+      <h2 class="font-serif text-3xl font-bold text-ink">Chào mừng trở lại</h2>
+      <p class="text-xs text-ink/60">Đăng nhập để quản lý lịch hẹn và tài nguyên của bạn.</p>
+    </div>
+
+    <form onsubmit="event.preventDefault(); App.switchRole('student'); App.navigateTo('student-dashboard')" class="space-y-4 text-xs">
+      <div>
+        <label class="block font-medium text-ink mb-1">Email sinh viên</label>
+        <input type="email" value="ngocan@student.edu.vn" class="w-full px-3.5 py-2.5 bg-paper rounded-xl border border-card-border focus:outline-none focus:border-sage text-ink text-xs font-mono" />
+      </div>
+      <div>
+        <label class="block font-medium text-ink mb-1">Mật khẩu</label>
+        <input type="password" value="password123" class="w-full px-3.5 py-2.5 bg-paper rounded-xl border border-card-border focus:outline-none focus:border-sage text-ink text-xs" />
+      </div>
+      <div class="flex items-center justify-between pt-1">
+        <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked class="rounded text-sage"><span class="text-ink/70">Ghi nhớ đăng nhập</span></label>
+        <a href="javascript:void(0)" class="text-sage hover:underline">Quên mật khẩu?</a>
+      </div>
+      <button type="submit" class="w-full py-3 bg-sage hover:bg-sage-deep text-white font-bold rounded-xl shadow-xs transition-colors text-sm">Đăng nhập</button>
+    </form>
+  </div>
+</div>

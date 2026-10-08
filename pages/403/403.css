@@ -1,0 +1,11 @@
+<div class="max-w-xl mx-auto my-12 text-center bg-white p-10 rounded-3xl border border-card-border shadow-sm space-y-6">
+  <div class="font-serif text-8xl font-bold text-clay-alert/30">403</div>
+  <div class="space-y-2">
+    <h2 class="font-serif text-3xl font-bold text-ink">Bạn không có quyền truy cập trang này</h2>
+    <p class="text-xs text-ink/70 leading-relaxed max-w-md mx-auto">Khu vực này yêu cầu đặc quyền chuyên viên hoặc quản trị viên hệ thống. Vui lòng liên hệ quản trị viên hoặc chuyển về vai trò của bạn.</p>
+  </div>
+  <div class="flex items-center justify-center gap-3 pt-2">
+    <button onclick="App.switchRole('student'); App.navigateTo('student-dashboard')" class="px-5 py-2.5 bg-sage hover:bg-sage-deep text-white font-bold text-xs rounded-xl shadow-xs transition-colors">Về bảng điều khiển</button>
+    <button onclick="App.navigateTo('login')" class="px-5 py-2.5 border border-card-border hover:bg-paper text-ink font-semibold text-xs rounded-xl transition-colors">Đăng nhập lại</button>
+  </div>
+</div>

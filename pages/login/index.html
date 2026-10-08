@@ -1,14 +1,19 @@
-<!--
-  LOGIN PAGE
-  Mô tả: Form đăng nhập cho các vai trò.
--->
-<div class="page-shell page-login">
-  <h2>Đăng nhập</h2>
-  <form>
-    <label>Email</label>
-    <input type="email" placeholder="student@campusmind.vn" />
-    <label>Mật khẩu</label>
-    <input type="password" placeholder="********" />
-    <button type="submit">Đăng nhập</button>
-  </form>
-</div>
+
+ * ADMIN SERVICES PAGE - Module JS
+ */
+
+const AdminServicesPage = {
+  init() {
+    console.log('Admin Services page initialized');
+  }
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => AdminServicesPage.init());
+} else {
+  AdminServicesPage.init();
+}
+
+
+
+

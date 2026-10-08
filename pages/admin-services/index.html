@@ -1,15 +1,19 @@
-<!--
-  ADMIN SERVICES PAGE
-  Mô tả: Quản lý CRUD dịch vụ và người dùng.
--->
-<div class="page-shell page-admin-services">
-  <h2>Quản lý dịch vụ</h2>
-  <table>
-    <thead>
-      <tr><th>Dịch vụ</th><th>Danh mục</th><th>Trạng thái</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>Tư vấn cá nhân</td><td>Tư vấn</td><td>Hoạt động</td></tr>
-    </tbody>
-  </table>
-</div>
+
+ * ADMIN DASHBOARD PAGE - Module JS
+ */
+
+const AdminDashboardPage = {
+  init() {
+    console.log('Admin Dashboard page initialized');
+  }
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => AdminDashboardPage.init());
+} else {
+  AdminDashboardPage.init();
+}
+
+
+
+

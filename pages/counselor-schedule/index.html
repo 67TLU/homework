@@ -1,13 +1,18 @@
-<!--
-  COUNSELOR SCHEDULE PAGE
-  Mô tả: Lịch tuần của chuyên viên.
--->
-<div class="page-shell page-counselor-schedule">
-  <h2>Lịch tuần chuyên viên</h2>
-  <div class="weekly-grid">
-    <article>Thứ 2</article>
-    <article>Thứ 3</article>
-    <article>Thứ 4</article>
-    <article>Thứ 5</article>
-  </div>
-</div>
+
+ * STUDENT APPOINTMENTS PAGE - Module JS
+ */
+
+const StudentAppointmentsPage = {
+  init() {
+    console.log('Student Appointments page initialized');
+  }
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => StudentAppointmentsPage.init());
+} else {
+  StudentAppointmentsPage.init();
+}
+
+
+

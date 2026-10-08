@@ -1,13 +1,19 @@
-<!--
-  DESIGN SYSTEM PAGE
-  Mô tả: Tham khảo design tokens và font system.
--->
-<div class="page-shell page-design-system">
-  <h2>Design System</h2>
-  <div class="palette-grid">
-    <div class="swatch sage">Sage</div>
-    <div class="swatch sage-deep">Sage Deep</div>
-    <div class="swatch amber-ai">Amber AI</div>
-    <div class="swatch clay-alert">Clay Alert</div>
-  </div>
-</div>
+
+ * 403 PAGE - Module JS
+ */
+
+const ForbiddenPage = {
+  init() {
+    console.log('403 page initialized');
+  }
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => ForbiddenPage.init());
+} else {
+  ForbiddenPage.init();
+}
+
+
+
+

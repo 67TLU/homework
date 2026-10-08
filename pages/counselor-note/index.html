@@ -1,8 +1,15 @@
-<!--
-  COUNSELOR NOTE PAGE
-  Mô tả: Ghi chú, tự tóm tắt và lưu nháp.
--->
-<div class="page-shell page-counselor-note">
-  <h2>Ghi chú buổi tư vấn</h2>
-  <textarea rows="8">Sinh viên đang gặp áp lực học tập...</textarea>
-</div>
+
+ * COUNSELOR SCHEDULE PAGE - Module JS
+ */
+
+const CounselorSchedulePage = {
+  init() {
+    console.log('Counselor Schedule page initialized');
+  }
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => CounselorSchedulePage.init());
+} else {
+  CounselorSchedulePage.init();
+}
