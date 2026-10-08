@@ -1,0 +1,62 @@
+<!-- RESOURCES PAGE / TRANG TÀI NGUYÊN -->
+<!-- Slide 04: Thư viện Self-help & AI-2 -->
+
+<div class="grid grid-cols-1 @lg:grid-cols-4 gap-8">
+  <!-- Sidebar Topics -->
+  <div class="space-y-6">
+    <div class="bg-white p-5 rounded-2xl border border-card-border shadow-sm">
+      <h3 class="text-xs font-bold uppercase tracking-wider text-ink/50 mb-3">CHỦ ĐỀ</h3>
+      <ul class="space-y-1.5 text-xs" id="resources-topics-list">
+        <!-- Populated by resources.js -->
+      </ul>
+    </div>
+
+    <!-- Saved Counter Box -->
+    <div class="bg-paper p-5 rounded-2xl border border-card-border text-xs space-y-2">
+      <div class="flex items-center gap-2 text-ink">
+        <i data-lucide="bookmark" class="w-4 h-4 text-sage"></i>
+        <span>Bạn đã lưu <strong>7 tài nguyên</strong> trong tháng này.</span>
+      </div>
+      <button onclick="App.showToast('Hiển thị danh sách 7 tài nguyên đã lưu', 'info')" class="text-sage font-bold hover:underline block pt-1">
+        Xem đã lưu →
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Resources Area -->
+  <div class="@lg:col-span-3 space-y-6">
+    <!-- Header and search bar -->
+    <div class="flex flex-col @sm:flex-row @sm:items-center justify-between gap-4 bg-white p-5 rounded-2xl border border-card-border">
+      <div>
+        <h2 class="font-serif text-2xl font-bold text-ink">Kho tài nguyên</h2>
+        <p class="text-xs text-ink/60 mt-0.5">48 nội dung · bài viết · video · sổ tay · workshop</p>
+      </div>
+
+      <div class="relative w-full @sm:w-64">
+        <i data-lucide="search" class="w-3.5 h-3.5 text-ink/40 absolute left-3 top-1/2 -translate-y-1/2"></i>
+        <input 
+          type="text" 
+          id="resources-search-input"
+          oninput="ResourcesPage.handleSearch(this.value)"
+          placeholder="Tìm theo từ khóa..." 
+          class="w-full pl-8 pr-3 py-1.5 text-xs bg-paper rounded-lg border border-card-border focus:outline-none focus:border-sage text-ink"
+        />
+      </div>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="flex flex-wrap gap-2 text-xs" id="resources-filter-tabs">
+      <!-- Populated by resources.js -->
+    </div>
+
+    <!-- AI-2 RECOMMENDATION CARD -->
+    <div id="ai2-recommendation-card" class="bg-gradient-to-r from-[#FFFDF9] to-[#FEFBF4] border-2 border-amber-300 rounded-2xl p-6 shadow-sm relative space-y-4">
+      <!-- Populated by resources.js -->
+    </div>
+
+    <!-- Regular Resources Grid -->
+    <div class="grid grid-cols-1 @md:grid-cols-3 gap-5" id="resources-grid">
+      <!-- Populated by resources.js -->
+    </div>
+  </div>
+</div>

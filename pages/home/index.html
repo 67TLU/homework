@@ -1,0 +1,131 @@
+<!-- HOME PAGE / TRANG CHỦ -->
+<!-- Slide 02: Hero & 4 Entry Cards -->
+
+<div class="space-y-12">
+  <!-- Hero Section -->
+  <section class="bg-white rounded-3xl p-8 @sm:p-12 @lg:p-16 border border-card-border shadow-sm relative overflow-hidden">
+    <div class="max-w-2xl space-y-6 relative z-10">
+      <div class="inline-flex items-center gap-2 bg-sage-tint text-sage-deep px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">
+        <span class="w-1.5 h-1.5 rounded-full bg-sage"></span>
+        Dành cho sinh viên
+      </div>
+      
+      <h1 class="font-serif text-4xl @sm:text-5xl @lg:text-6xl font-bold text-ink tracking-tight leading-[1.15]">
+        Bạn không phải<br>đối mặt một mình.
+      </h1>
+      
+      <p class="text-base @sm:text-lg text-ink/75 leading-relaxed">
+        Đặt lịch tư vấn, khám phá dịch vụ hỗ trợ và theo dõi hành trình wellbeing của bạn — tất cả tại một nơi.
+      </p>
+
+      <div class="flex flex-wrap items-center gap-3 pt-2">
+        <button onclick="App.navigateTo('services')" class="bg-sage hover:bg-sage-deep text-white px-6 py-3 rounded-xl font-semibold text-sm shadow-md hover:shadow-lg transition-all flex items-center gap-2">
+          <i data-lucide="compass" class="w-4 h-4"></i>
+          Khám phá dịch vụ
+        </button>
+        <button onclick="App.openAIQuizModal()" class="bg-paper hover:bg-card-border/60 text-ink px-6 py-3 rounded-xl font-semibold text-sm border border-card-border transition-all flex items-center gap-2">
+          <span class="text-amber-ai font-bold">✦</span>
+          Kiểm tra nhu cầu với AI
+        </button>
+      </div>
+    </div>
+
+    <!-- Decorative Leaf Graphics -->
+    <div class="absolute right-0 -bottom-10 @lg:bottom-0 w-80 @lg:w-96 opacity-20 @lg:opacity-30 pointer-events-none text-sage">
+      <svg viewBox="0 0 200 200" fill="currentColor">
+        <path d="M47.7,-64.3C61.4,-54.6,71.8,-40.4,76.5,-24.5C81.3,-8.6,80.4,9,73.6,23.8C66.8,38.6,54.1,50.7,39.9,59.2C25.7,67.7,9.9,72.7,-6.2,71.2C-22.3,69.7,-38.6,61.8,-51.2,49.8C-63.8,37.8,-73.6,22.1,-75.9,5.1C-78.3,-12,-73.1,-30.4,-62.4,-44.4C-51.8,-58.4,-36.7,-67.9,-20.8,-71.4C-4.9,-74.9,8.1,-72.3,20.8,-67.7Z" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- 4 Entry Cards -->
+  <section>
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="font-serif text-2xl font-bold text-ink">Bốn lối vào dịch vụ chính</h2>
+      <span class="text-xs text-ink/50">Bắt đầu chỉ trong 3 giây</span>
+    </div>
+
+    <div class="grid grid-cols-1 @sm:grid-cols-2 @lg:grid-cols-4 gap-4">
+      <!-- Card 1: Tư vấn cá nhân -->
+      <div onclick="App.navigateTo('counselor')" class="interactive-card bg-white p-6 rounded-2xl border border-card-border cursor-pointer group">
+        <div class="w-12 h-12 rounded-xl bg-sage-tint text-sage-deep flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+          <i data-lucide="user-check" class="w-6 h-6"></i>
+        </div>
+        <h3 class="font-serif font-bold text-lg text-ink mb-1 group-hover:text-sage transition-colors">Tư vấn cá nhân</h3>
+        <p class="text-xs text-ink/70 leading-relaxed">
+          Đặt lịch với chuyên viên tâm lý học đường riêng tư và bảo mật.
+        </p>
+        <div class="mt-4 pt-3 border-t border-card-border flex items-center justify-between text-xs font-semibold text-sage">
+          <span>Chọn lịch trống</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </div>
+      </div>
+
+      <!-- Card 2: Workshop -->
+      <div onclick="App.navigateTo('services')" class="interactive-card bg-white p-6 rounded-2xl border border-card-border cursor-pointer group">
+        <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+          <i data-lucide="users" class="w-6 h-6"></i>
+        </div>
+        <h3 class="font-serif font-bold text-lg text-ink mb-1 group-hover:text-amber-700 transition-colors">Workshop</h3>
+        <p class="text-xs text-ink/70 leading-relaxed">
+          Kỹ năng quản trị cảm xúc, vượt qua trì hoãn và áp lực học tập.
+        </p>
+        <div class="mt-4 pt-3 border-t border-card-border flex items-center justify-between text-xs font-semibold text-amber-700">
+          <span>Xem lịch mở</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </div>
+      </div>
+
+      <!-- Card 3: Tài nguyên tự hỗ trợ -->
+      <div onclick="App.navigateTo('resources')" class="interactive-card bg-white p-6 rounded-2xl border border-card-border cursor-pointer group">
+        <div class="w-12 h-12 rounded-xl bg-sky-50 text-sky-info flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+          <i data-lucide="book-open" class="w-6 h-6"></i>
+        </div>
+        <h3 class="font-serif font-bold text-lg text-ink mb-1 group-hover:text-sky-info transition-colors">Tài nguyên tự hỗ trợ</h3>
+        <p class="text-xs text-ink/70 leading-relaxed">
+          Bài viết, audio thiền, video ngắn và sổ tay theo chủ đề.
+        </p>
+        <div class="mt-4 pt-3 border-t border-card-border flex items-center justify-between text-xs font-semibold text-sky-info">
+          <span>48 nội dung</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </div>
+      </div>
+
+      <!-- Card 4: AI Navigator -->
+      <div onclick="App.openAIQuizModal()" class="interactive-card bg-sage-deep text-white p-6 rounded-2xl border border-sage cursor-pointer group relative overflow-hidden">
+        <div class="w-12 h-12 rounded-xl bg-white/10 text-amber-ai flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+          <span class="text-xl font-bold">✦</span>
+        </div>
+        <div class="inline-block bg-amber-ai/20 text-amber-300 px-2 py-0.5 rounded text-[10px] font-bold uppercase mb-1">
+          AI Navigator
+        </div>
+        <h3 class="font-serif font-bold text-lg text-white mb-1">Chưa rõ bắt đầu?</h3>
+        <p class="text-xs text-white/80 leading-relaxed">
+          Trả lời 4 câu hỏi để AI phân loại nhu cầu và gợi ý lộ trình phù hợp.
+        </p>
+        <div class="mt-4 pt-3 border-t border-white/20 flex items-center justify-between text-xs font-semibold text-amber-300">
+          <span>Khảo sát nhanh</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Proof of Safety & Trust -->
+  <section class="bg-paper border border-card-border rounded-2xl p-6 @sm:p-8 flex flex-col @md:flex-row items-center justify-between gap-6">
+    <div class="flex items-center gap-4">
+      <div class="w-12 h-12 rounded-xl bg-sage text-white flex items-center justify-center shrink-0">
+        <i data-lucide="shield-check" class="w-6 h-6"></i>
+      </div>
+      <div>
+        <h4 class="font-serif font-bold text-base text-ink">Bảo mật thông tin & Không chẩn đoán y khoa</h4>
+        <p class="text-xs text-ink/70">
+          Mọi chia sẻ của sinh viên đều được giữ kín theo quy chuẩn bảo mật học đường. AI chỉ hỗ trợ điều hướng, không đưa ra phán đoán tâm tính.
+        </p>
+      </div>
+    </div>
+    <button onclick="App.switchRole('student'); App.navigateTo('student-dashboard')" class="shrink-0 px-4 py-2 bg-white border border-card-border text-xs font-semibold rounded-lg hover:bg-sage-tint/40 transition-colors">
+      Trải nghiệm tài khoản sinh viên →
+    </button>
+  </section>
+</div>

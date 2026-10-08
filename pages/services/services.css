@@ -1,0 +1,35 @@
+/* SERVICES PAGE SPECIFIC STYLES */
+
+.service-card {
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.category-filter {
+  transition: all 0.2s ease;
+}
+
+.category-filter.active {
+  background-color: #2F7A66;
+  color: white;
+  font-weight: 600;
+}
+
+.search-highlight {
+  background-color: #DCEAE3;
+  font-weight: 500;
+}
+
+.filter-chip {
+  transition: all 0.2s ease;
+}
+
+.filter-chip.active {
+  background-color: #1C5344;
+  color: white;
+  border-color: #1C5344;
+}
