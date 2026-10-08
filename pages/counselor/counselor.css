@@ -1,0 +1,54 @@
+<!-- COUNSELOR PAGE -->
+<div class="space-y-8">
+  <div class="bg-white rounded-3xl p-6 border border-card-border shadow-sm">
+    <div class="flex flex-col @md:flex-row justify-between gap-6">
+      <div class="flex items-center gap-4">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=300" class="w-20 h-20 rounded-2xl object-cover" alt="TS. Nguyễn Minh Hà" />
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="status-pill status-confirmed"><span class="status-dot"></span><span>Đang nhận lịch</span></span>
+            <span class="text-[11px] text-ink/50">Phòng H-204</span>
+          </div>
+          <h2 class="font-serif text-3xl font-bold text-ink mt-2">TS. Nguyễn Minh Hà</h2>
+          <p class="text-xs text-ink/70">Tâm lý học đường · 9 năm kinh nghiệm</p>
+        </div>
+      </div>
+
+      <div class="flex gap-4 text-center">
+        <div>
+          <div class="font-serif text-2xl font-bold text-ink">4.9</div>
+          <div class="text-[10px] uppercase text-ink/50">Đánh giá</div>
+        </div>
+        <div>
+          <div class="font-serif text-2xl font-bold text-ink">328</div>
+          <div class="text-[10px] uppercase text-ink/50">Buổi tư vấn</div>
+        </div>
+        <div>
+          <div class="font-serif text-2xl font-bold text-ink">24h</div>
+          <div class="text-[10px] uppercase text-ink/50">Phản hồi</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 @lg:grid-cols-2 gap-6">
+    <div class="bg-white rounded-3xl p-6 border border-card-border shadow-sm">
+      <h3 class="font-serif text-xl font-bold text-ink mb-4">Giới thiệu</h3>
+      <p class="text-sm text-ink/75 leading-relaxed">Chuyên gia tâm lý học đường hỗ trợ sinh viên vượt qua áp lực học tập, lo âu, thiếu tự tin và định hướng phát triển cá nhân.</p>
+      <div class="mt-4 flex flex-wrap gap-2 text-[11px]">
+        <span class="px-2.5 py-1 rounded-full bg-paper border border-card-border">Lo âu</span>
+        <span class="px-2.5 py-1 rounded-full bg-paper border border-card-border">Áp lực học tập</span>
+        <span class="px-2.5 py-1 rounded-full bg-paper border border-card-border">Định hướng</span>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-3xl p-6 border border-card-border shadow-sm">
+      <h3 class="font-serif text-xl font-bold text-ink mb-4">Khung giờ trống</h3>
+      <div class="space-y-2 text-xs">
+        <div class="flex items-center justify-between bg-paper p-3 rounded-xl"><span>T2 · 02/06 · 08:30</span><span class="text-sage font-bold">Còn trống</span></div>
+        <div class="flex items-center justify-between bg-paper p-3 rounded-xl"><span>T4 · 04/06 · 08:30</span><span class="text-sage font-bold">Còn trống</span></div>
+        <div class="flex items-center justify-between bg-paper p-3 rounded-xl"><span>T5 · 05/06 · 10:00</span><span class="text-sage font-bold">Còn trống</span></div>
+      </div>
+    </div>
+  </div>
+</div>
