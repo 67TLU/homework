@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="vi" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusMind - Student Wellbeing Hub | Nền Tảng Hỗ Trợ Sức Khỏe Tinh Thần Sinh Viên</title>
+  
+  <!-- Google Fonts: Fraunces (Headings/Emotions) & Be Vietnam Pro (Operations/UI) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS via CDN with custom color tokens from Slide 15 -->
+  <script src="https://cdn.tailwindcss.com?plugins=container-queries"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sage: '#2F7A66',
+            'sage-deep': '#1C5344',
+            'amber-ai': '#D79B34',
+            'clay-alert': '#C4643F',
+            ink: '#16241D',
+            paper: '#F2EEE6',
+            'sage-tint': '#DCEAE3',
+            'sky-info': '#3B6E92',
+            'card-border': '#E4DDD4',
+          },
+          fontFamily: {
+            serif: ['Fraunces', 'Georgia', 'serif'],
+            sans: ['"Be Vietnam Pro"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom CSS for Design System -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-paper text-ink h-screen flex flex-col font-sans selection:bg-sage-tint selection:text-sage-deep overflow-hidden">
+
+  <!-- ================= TOP TOOLBAR / BTL SHOWCASE CONTROLLER ================= -->
+  <aside class="no-print bg-sage-deep text-white text-xs px-3 py-2 border-b border-sage/40 z-50 shadow-md shrink-0">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <!-- Project Badge & Quick Slides -->
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1.5 bg-sage px-2 py-0.5 rounded font-medium text-white/90">
+          <span class="w-2 h-2 rounded-full bg-emerald-300 animate-pulse"></span>
+          BTL-02 · CSE122
+        </span>
+        <span class="hidden @sm:inline text-white/70">|</span>
+        <button onclick="App.openSlideDeckModal()" class="flex items-center gap-1 hover:text-amber-300 text-white/90 transition-colors font-medium">
+          <i data-lucide="layers" class="w-3.5 h-3.5 text-amber-ai"></i>
+          <span>16 Slide Showcase Deck</span>
+        </button>
+      </div>
+
+        <!-- Quick Screen Jump Dropdown -->
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-1.5">
+          <span class="text-white/60 hidden md:inline">Màn hình nhanh:</span>
+          <select id="quick-screen-select" onchange="App.navigateTo(this.value)" class="bg-black/30 text-white text-xs rounded border border-white/20 px-2 py-1 focus:outline-none focus:border-amber-ai">
+            <optgroup label="Khách & Công cộng">
+              <option value="home">02. Trang chủ & Hero</option>
+              <option value="services">03. Khám phá Dịch vụ</option>
+              <option value="resources">04. Thư viện Self-help (AI-2)</option>
+              <option value="counselor">05. Hồ sơ chuyên viên (Lịch trống)</option>
+            </optgroup>
+            <optgroup label="Sinh viên (Lê Ngọc An)">
+              <option value="student-dashboard">06. Bảng điều khiển SV (AI-1)</option>
+              <option value="student-booking">07. Luồng đặt lịch 4 bước</option>
+              <option value="student-appointments">08. Quản lý lịch hẹn & Drawer</option>
+            </optgroup>
+            <optgroup label="Chuyên viên (TS. Minh Hà)">
+              <option value="counselor-schedule">09. Lịch tuần & Hàng đợi duyệt</option>
+              <option value="counselor-note">10. Ghi chú buổi tư vấn (AI-3)</option>
+            </optgroup>
+            <optgroup label="Quản trị viên (Admin)">
+              <option value="admin-dashboard">11. Bảng điều phối hệ thống</option>
+              <option value="admin-services">12. CRUD Dịch vụ & Người dùng</option>
+            </optgroup>
+            <optgroup label="Hệ thống & An toàn">
+              <option value="login">13. Đăng nhập & Xác thực</option>
+              <option value="404">13b. Trang 404 Not Found</option>
+              <option value="403">13c. Trang 403 Forbidden</option>
+              <option value="design-system">15. Design System 8 Tokens</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <!-- Role Switcher -->
+        <div class="flex items-center gap-1.5 border-l border-white/20 pl-3">
+          <span class="text-white/60 hidden lg:inline">Đóng vai:</span>
+          <select id="role-selector" onchange="App.switchRole(this.value)" class="bg-amber-ai text-ink font-semibold text-xs rounded px-2 py-1 border-none focus:outline-none cursor-pointer">
+            <option value="student">🎓 Sinh viên (Lê Ngọc An)</option>
+            <option value="counselor">🧑‍⚕️ Chuyên viên (TS. Minh Hà)</option>
+            <option value="admin">🛡️ Quản trị viên (Admin)</option>
+            <option value="guest">👤 Khách (Chưa đăng nhập)</option>
+          </select>
+        </div>
+
+        <!-- Responsive Breakpoint Simulator (Slide 14) -->
+        <div class="hidden sm:flex items-center gap-1 border-l border-white/20 pl-3">
+          <button onclick="App.setViewport('full')" title="Màn hình đầy đủ" id="btn-vp-full" class="p-1 rounded bg-white/20 hover:bg-white/30 text-white">
+            <i data-lucide="monitor" class="w-3.5 h-3.5"></i>
+          </button>
+          <button onclick="App.setViewport('tablet')" title="Giả lập Tablet (768px)" id="btn-vp-tablet" class="p-1 rounded hover:bg-white/20 text-white/70">
+            <i data-lucide="tablet" class="w-3.5 h-3.5"></i>
+          </button>
+          <button onclick="App.setViewport('mobile')" title="Giả lập Mobile (390px)" id="btn-vp-mobile" class="p-1 rounded hover:bg-white/20 text-white/70">
+            <i data-lucide="smartphone" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ================= DEVICE WRAPPER (FOR RESPONSIVE SIMULATION) ================= -->
+  <div id="viewport-container" class="@container flex-1 flex flex-col w-full transition-all duration-300 overflow-y-auto bg-paper relative">
+
+    <!-- ================= STICKY HEADER (SLIDE 02) ================= -->
+    <header class="bg-white/95 backdrop-blur-md border-b border-card-border sticky top-0 z-40 transition-all">
+      <div class="max-w-7xl mx-auto px-4 @sm:px-6 @lg:px-8 h-16 flex items-center justify-between gap-4">
+        <!-- Brand Logo -->
+        <div class="flex items-center gap-3 cursor-pointer" onclick="App.navigateTo('home')">
+          <div class="w-9 h-9 rounded-xl bg-sage-deep text-white flex items-center justify-center shadow-sm">
+            <svg class="w-5 h-5 text-emerald-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10a10 10 0 0 1-10-10C2 6.477 6.477 2 12 2z"/>
+              <path d="M7 12c1.5-2 3.5-3 5-3s3.5 1 5 3"/>
+              <circle cx="12" cy="15" r="1.5" fill="currentColor"/>
+            </svg>
+          </div>
+          <div>
+            <span class="font-serif font-bold text-xl tracking-tight text-ink flex items-center gap-1.5">
+              CampusMind
+            </span>
+            <span class="text-[10px] uppercase tracking-wider text-sage font-semibold block leading-none">
+              Student Wellbeing Hub
+            </span>
+          </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <nav class="hidden @md:flex items-center space-x-1 @lg:space-x-2 text-sm font-medium text-ink/80">
+          <button onclick="App.navigateTo('home')" class="nav-link px-3 py-1.5 rounded-lg hover:text-sage hover:bg-sage-tint/40 transition-colors" data-route="home">
+            Trang chủ
+          </button>
+          <button onclick="App.navigateTo('services')" class="nav-link px-3 py-1.5 rounded-lg hover:text-sage hover:bg-sage-tint/40 transition-colors" data-route="services">
+            Dịch vụ
+          </button>
+          <button onclick="App.navigateTo('resources')" class="nav-link px-3 py-1.5 rounded-lg hover:text-sage hover:bg-sage-tint/40 transition-colors" data-route="resources">
+            Tài nguyên
+          </button>
+          <button onclick="App.navigateTo('counselor')" class="nav-link px-3 py-1.5 rounded-lg hover:text-sage hover:bg-sage-tint/40 transition-colors" data-route="counselor">
+            Chuyên viên
+          </button>
+          <button onclick="App.navigateTo('design-system')" class="nav-link px-3 py-1.5 rounded-lg hover:text-sage hover:bg-sage-tint/40 transition-colors text-amber-700 bg-amber-50" data-route="design-system">
+            Design System
+          </button>
+        </nav>
+
+        <!-- Search Bar with Suggestions -->
+        <div class="relative flex-1 max-w-xs hidden @sm:block">
+          <div class="relative">
+            <i data-lucide="search" class="w-4 h-4 text-ink/40 absolute left-3 top-1/2 -translate-y-1/2"></i>
+            <input 
+              type="text" 
+              id="global-search-input"
+              oninput="App.handleGlobalSearch(this.value)"
+              onfocus="App.showSearchSuggestions(true)"
+              placeholder="Tìm dịch vụ, tài nguyên, chuyên viên..." 
+              class="w-full pl-9 pr-7 py-1.5 text-xs bg-paper rounded-full border border-card-border focus:outline-none focus:ring-2 focus:ring-sage/40 focus:border-sage transition-all text-ink placeholder:text-ink/40"
+            />
+            <span class="text-[10px] text-ink/40 absolute right-2.5 top-1/2 -translate-y-1/2 bg-white px-1.5 py-0.5 rounded border border-card-border hidden @lg:inline">/</span>
+          </div>
+
+          <!-- Search Suggestions Dropdown -->
+          <div id="search-suggestions-dropdown" class="hidden absolute left-0 right-0 mt-2 bg-white rounded-xl shadow-xl border border-card-border py-2 z-50 text-xs">
+            <div class="px-3 py-1 text-[11px] font-semibold text-ink/50 uppercase tracking-wider">Gợi ý tìm kiếm</div>
+            <div id="search-results-list" class="divide-y divide-card-border/50">
+              <!-- Dynamically Populated -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Right User Actions -->
+        <div class="flex items-center gap-2">
+          <!-- Student / Counselor / Admin Workspace Button -->
+          <div id="workspace-action-btn">
+            <!-- Dynamically populated based on active role -->
+          </div>
+
+          <!-- Đặt lịch ngay CTA -->
+          <button onclick="App.startBooking()" class="bg-sage hover:bg-sage-deep text-white px-3.5 py-2 rounded-lg text-xs font-semibold shadow-sm hover:shadow transition-all flex items-center gap-1.5">
+            <i data-lucide="calendar-plus" class="w-3.5 h-3.5"></i>
+            <span class="hidden xs:inline">Đặt lịch ngay</span>
+          </button>
+
+          <!-- Mobile Hamburger -->
+          <button onclick="App.toggleMobileMenu()" class="@md:hidden p-2 rounded-lg hover:bg-paper text-ink/70">
+            <i data-lucide="menu" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Navigation -->
+      <div id="mobile-menu-drawer" class="hidden @md:hidden border-t border-card-border bg-white px-4 py-3 space-y-2">
+        <button onclick="App.navigateTo('home'); App.toggleMobileMenu(false)" class="w-full text-left py-2 px-3 rounded-lg text-sm hover:bg-paper font-medium">Trang chủ</button>
+        <button onclick="App.navigateTo('services'); App.toggleMobileMenu(false)" class="w-full text-left py-2 px-3 rounded-lg text-sm hover:bg-paper font-medium">Dịch vụ hỗ trợ</button>
+        <button onclick="App.navigateTo('resources'); App.toggleMobileMenu(false)" class="w-full text-left py-2 px-3 rounded-lg text-sm hover:bg-paper font-medium">Kho tài nguyên self-help</button>
+        <button onclick="App.navigateTo('counselor'); App.toggleMobileMenu(false)" class="w-full text-left py-2 px-3 rounded-lg text-sm hover:bg-paper font-medium">Hồ sơ chuyên viên</button>
+        <button onclick="App.navigateTo('design-system'); App.toggleMobileMenu(false)" class="w-full text-left py-2 px-3 rounded-lg text-sm hover:bg-paper font-medium text-amber-700">Design System & Tokens</button>
+      </div>
+    </header>
+
+    <!-- ================= DYNAMIC MAIN VIEW CONTAINER ================= -->
+    <main id="app-view" class="flex-1 max-w-7xl w-full mx-auto px-4 @sm:px-6 @lg:px-8 py-6">
+      <!-- Injected dynamically by app.js router -->
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-sage-deep text-paper border-t border-sage/30 mt-auto py-10 px-4 @sm:px-6 @lg:px-8">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 @md:grid-cols-4 gap-8">
+        <div class="space-y-3">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg bg-sage text-white flex items-center justify-center">
+              <i data-lucide="heart-handshake" class="w-4 h-4"></i>
+            </div>
+            <span class="font-serif font-bold text-lg text-white">CampusMind</span>
+          </div>
+          <p class="text-xs text-paper/70 leading-relaxed">
+            Nền tảng điều phối hỗ trợ sức khỏe tinh thần cho sinh viên. Giúp bạn không phải đối mặt với khó khăn một mình.
+          </p>
+          <div class="text-[11px] text-amber-ai font-medium">
+            ✦ BTL-02 · CSE122 · Nhóm 3 Sinh viên
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-white mb-3">Dịch vụ trọng tâm</h4>
+          <ul class="space-y-2 text-xs text-paper/70">
+            <li><a href="javascript:void(0)" onclick="App.navigateTo('services')" class="hover:text-white transition-colors">Tư vấn cá nhân 1-1</a></li>
+            <li><a href="javascript:void(0)" onclick="App.navigateTo('services')" class="hover:text-white transition-colors">Workshop quản trị cảm xúc</a></li>
+            <li><a href="javascript:void(0)" onclick="App.navigateTo('resources')" class="hover:text-white transition-colors">Chuỗi bài tập thư giãn online</a></li>
+            <li><a href="javascript:void(0)" onclick="App.navigateTo('services')" class="hover:text-white transition-colors">Nhóm hỗ trợ đồng đẳng K64-K67</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-white mb-3">Các phân hệ (4 Vai trò)</h4>
+          <ul class="space-y-2 text-xs text-paper/70">
+            <li><a href="javascript:void(0)" onclick="App.switchRole('student'); App.navigateTo('student-dashboard')" class="hover:text-white transition-colors">Không gian cá nhân sinh viên</a></li>
+            <li><a href="javascript:void(0)" onclick="App.switchRole('counselor'); App.navigateTo('counselor-schedule')" class="hover:text-white transition-colors">Bảng điều phối chuyên viên</a></li>
+            <li><a href="javascript:void(0)" onclick="App.switchRole('admin'); App.navigateTo('admin-dashboard')" class="hover:text-white transition-colors">Quản trị toàn hệ thống (Admin)</a></li>
+            <li><a href="javascript:void(0)" onclick="App.openSlideDeckModal()" class="hover:text-amber-300 transition-colors">Trình chiếu 16 Slide BTL</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-white mb-3">Đường dây khẩn cấp 24/7</h4>
+          <p class="text-xs text-paper/70">
+            Nếu bạn đang gặp khủng hoảng tâm lý cấp bách, xin vui lòng gọi ngay:
+          </p>
+          <div class="bg-black/20 p-3 rounded-lg border border-white/10">
+            <div class="text-xs font-bold text-amber-300">Tổng đài Hỗ trợ Học đường:</div>
+            <div class="text-base font-serif font-bold text-white mt-0.5">1800-6868 (Miễn phí)</div>
+            <div class="text-[10px] text-paper/60 mt-1">Trực 24/7 tất cả các ngày trong tuần</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="max-w-7xl mx-auto border-t border-white/10 mt-8 pt-4 flex flex-col @sm:flex-row items-center justify-between text-[11px] text-paper/50 gap-2">
+        <div>© 2025 CampusMind. Thiết kế chuẩn Design System 8 Tokens & 3 Breakpoint.</div>
+        <div class="flex gap-4">
+          <a href="javascript:void(0)" onclick="App.navigateTo('403')" class="hover:underline">Thử trang lỗi 403</a>
+          <a href="javascript:void(0)" onclick="App.navigateTo('404')" class="hover:underline">Thử trang lỗi 404</a>
+          <a href="javascript:void(0)" onclick="App.navigateTo('design-system')" class="hover:underline">Design Tokens</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ================= MODALS & DRAWERS CONTAINER ================= -->
+
+  <!-- Slide Deck Modal (16 Slides Full Showcase) -->
+  <div id="slide-deck-modal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden border border-card-border">
+      <div class="bg-sage-deep text-white px-6 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <i data-lucide="presentation" class="w-5 h-5 text-amber-ai"></i>
+          <div>
+            <h3 class="font-serif font-bold text-lg">CampusMind · BTL-02 Slide Deck Showcase</h3>
+            <p class="text-xs text-white/70">16 slide — Mỗi slide là một phần hoàn chỉnh của ứng dụng</p>
+          </div>
+        </div>
+        <button onclick="App.closeSlideDeckModal()" class="text-white/80 hover:text-white p-1 rounded-lg hover:bg-white/10">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="p-6 overflow-y-auto space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs" id="slide-deck-grid">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+
+      <div class="bg-paper px-6 py-3 border-t border-card-border flex justify-between items-center text-xs text-ink/70">
+        <span>Nhấn vào bất kỳ slide nào để mở trực tiếp màn hình tương ứng.</span>
+        <button onclick="App.closeSlideDeckModal()" class="px-4 py-1.5 bg-sage text-white rounded-lg font-medium hover:bg-sage-deep">
+          Đóng
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI-1 Support Navigator Quiz Modal (Slide 06 & Slide 02) -->
+  <div id="ai1-quiz-modal" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-lg w-full shadow-2xl overflow-hidden border border-card-border">
+      <div class="bg-sage-deep text-white px-6 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="text-amber-ai font-bold text-lg">✦</span>
+          <div>
+            <h3 class="font-serif font-bold text-base">AI-1 · Support Navigator</h3>
+            <p class="text-[11px] text-white/70">Khảo sát 4 câu hỏi định hướng dịch vụ phù hợp</p>
+          </div>
+        </div>
+        <button onclick="App.closeAIQuizModal()" class="text-white/80 hover:text-white">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="p-6 space-y-5" id="ai-quiz-content">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Resource Reader Modal (Slide 04 Self-help Reader) -->
+  <div id="resource-reader-modal" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden border border-card-border">
+      <div class="bg-paper px-6 py-4 border-b border-card-border flex items-center justify-between">
+        <div>
+          <span id="reader-category-pill" class="status-pill status-confirmed text-[10px]"></span>
+          <h3 id="reader-title" class="font-serif font-bold text-lg text-ink mt-1"></h3>
+        </div>
+        <button onclick="App.closeResourceReader()" class="text-ink/60 hover:text-ink p-1">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      <div class="p-6 overflow-y-auto space-y-4 text-sm leading-relaxed text-ink/80" id="reader-body">
+        <!-- Resource text/content -->
+      </div>
+      <div class="bg-paper px-6 py-3 border-t border-card-border flex justify-between items-center text-xs">
+        <span class="text-ink/60" id="reader-meta"></span>
+        <div class="flex gap-2">
+          <button id="reader-bookmark-btn" class="px-3 py-1.5 rounded-lg border border-card-border bg-white hover:bg-paper text-ink flex items-center gap-1.5">
+            <i data-lucide="heart" class="w-3.5 h-3.5"></i>
+            <span>Lưu tài nguyên</span>
+          </button>
+          <button onclick="App.closeResourceReader()" class="px-4 py-1.5 bg-sage text-white rounded-lg hover:bg-sage-deep">
+            Đã hiểu
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Slide Drawer (Slide 08 Appointment Detail Drawer) -->
+  <div id="appointment-detail-drawer" class="hidden fixed inset-0 z-50 overflow-hidden">
+    <!-- Backdrop -->
+    <div onclick="App.closeAppointmentDrawer()" class="absolute inset-0 bg-black/40 backdrop-blur-xs transition-opacity"></div>
+    <!-- Drawer Panel -->
+    <div class="absolute inset-y-0 right-0 max-w-md w-full bg-white shadow-2xl border-l border-card-border flex flex-col p-6 overflow-y-auto drawer-transition">
+      <div class="flex items-center justify-between pb-4 border-b border-card-border">
+        <div>
+          <span class="text-xs uppercase tracking-wider text-ink/40 font-bold">CHI TIẾT LỊCH HẸN</span>
+          <h3 id="drawer-apt-id" class="font-serif font-bold text-2xl text-ink">APT-1042</h3>
+        </div>
+        <button onclick="App.closeAppointmentDrawer()" class="p-2 text-ink/40 hover:text-ink rounded-lg hover:bg-paper">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="py-5 space-y-6 flex-1">
+        <!-- Status -->
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-ink/60">Trạng thái:</span>
+          <span id="drawer-apt-status" class="status-pill status-confirmed">
+            <span class="status-dot"></span>
+            <span>Đã xác nhận</span>
+          </span>
+        </div>
+
+        <!-- Info fields -->
+        <div class="bg-paper p-4 rounded-xl space-y-3 text-xs">
+          <div>
+            <div class="text-ink/50 mb-0.5">Dịch vụ:</div>
+            <div id="drawer-apt-service" class="font-semibold text-ink text-sm">Tư vấn cá nhân 1-1 · 45 phút</div>
+          </div>
+          <div>
+            <div class="text-ink/50 mb-0.5">Chuyên viên phụ trách:</div>
+            <div id="drawer-apt-counselor" class="font-semibold text-ink text-sm">TS. Nguyễn Minh Hà · Phòng H-204</div>
+          </div>
+          <div>
+            <div class="text-ink/50 mb-0.5">Thời gian hẹn:</div>
+            <div id="drawer-apt-time" class="font-semibold text-sage-deep text-sm">05/06/2025 · 13:30 – 14:15</div>
+          </div>
+          <div>
+            <div class="text-ink/50 mb-0.5">Hình thức:</div>
+            <div id="drawer-apt-format" class="font-semibold text-ink">Trực tiếp tại cơ sở chính</div>
+          </div>
+          <div>
+            <div class="text-ink/50 mb-0.5">Ghi chú sinh viên:</div>
+            <div id="drawer-apt-note" class="italic text-ink/80">Áp lực học tập và thi cử...</div>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="space-y-2">
+          <div class="grid grid-cols-2 gap-2">
+            <button onclick="App.rescheduleAppointment()" class="px-4 py-2 border border-card-border rounded-lg text-xs font-semibold hover:bg-paper text-ink flex items-center justify-center gap-1.5">
+              <i data-lucide="calendar" class="w-3.5 h-3.5 text-sage"></i>
+              Đổi lịch
+            </button>
+            <button onclick="App.confirmCancelAppointment()" class="px-4 py-2 border border-clay-alert/30 text-clay-alert rounded-lg text-xs font-semibold hover:bg-clay-alert/10 flex items-center justify-center gap-1.5">
+              <i data-lucide="x-circle" class="w-3.5 h-3.5"></i>
+              Hủy lịch
+            </button>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <button onclick="App.archiveAppointment()" class="px-4 py-2 bg-paper rounded-lg text-xs font-medium hover:bg-card-border/60 text-ink/80 flex items-center justify-center gap-1.5">
+              <i data-lucide="archive" class="w-3.5 h-3.5"></i>
+              Lưu trữ
+            </button>
+            <button onclick="App.addToCalendar()" class="px-4 py-2 bg-sage/10 text-sage-deep rounded-lg text-xs font-medium hover:bg-sage/20 flex items-center justify-center gap-1.5">
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+              Thêm vào lịch
+            </button>
+          </div>
+        </div>
+
+        <!-- Safe Deletion Notice from Slide 08 -->
+        <div class="bg-amber-50 border border-amber-200 p-3 rounded-lg text-[11px] text-amber-900 leading-relaxed">
+          <div class="font-semibold flex items-center gap-1">
+            <i data-lucide="shield-alert" class="w-3.5 h-3.5 text-amber-ai"></i>
+            Chính sách lưu trữ an toàn:
+          </div>
+          Hệ thống không cho phép thao tác xóa vật lý. Bạn có thể <strong>Lưu trữ</strong> thay vì hủy để đảm bảo giữ nguyên lịch sử hỗ trợ của bạn.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin Add / Edit Service Modal (Slide 12) -->
+  <div id="admin-service-modal" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-lg w-full shadow-2xl overflow-hidden border border-card-border">
+      <div class="bg-sage-deep text-white px-6 py-4 flex items-center justify-between">
+        <h3 class="font-serif font-bold text-base" id="admin-modal-title">Thêm dịch vụ mới</h3>
+        <button onclick="App.closeAdminServiceModal()" class="text-white/80 hover:text-white">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form id="admin-service-form" onsubmit="App.saveAdminService(event)" class="p-6 space-y-4 text-xs">
+        <div>
+          <label class="block font-medium text-ink mb-1">Tên dịch vụ</label>
+          <input type="text" id="svc-form-name" required placeholder="Ví dụ: Tư vấn nhóm đồng đẳng..." class="w-full px-3 py-2 border border-card-border rounded-lg focus:outline-none focus:border-sage text-ink text-xs">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-medium text-ink mb-1">Danh mục</label>
+            <select id="svc-form-category" class="w-full px-3 py-2 border border-card-border rounded-lg focus:outline-none focus:border-sage text-ink text-xs bg-white">
+              <option value="Tư vấn cá nhân">Tư vấn cá nhân</option>
+              <option value="Workshop nhóm">Workshop nhóm</option>
+              <option value="Hỗ trợ học tập">Hỗ trợ học tập</option>
+              <option value="Giấc ngủ & thư giãn">Giấc ngủ & thư giãn</option>
+              <option value="Quan hệ & giao tiếp">Quan hệ & giao tiếp</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-medium text-ink mb-1">Thời lượng</label>
+            <input type="text" id="svc-form-duration" required placeholder="Ví dụ: 45 phút, 60 phút..." class="w-full px-3 py-2 border border-card-border rounded-lg focus:outline-none focus:border-sage text-ink text-xs">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-medium text-ink mb-1">Hình thức</label>
+            <select id="svc-form-format" class="w-full px-3 py-2 border border-card-border rounded-lg focus:outline-none focus:border-sage text-ink text-xs bg-white">
+              <option value="Trực tiếp tại cơ sở chính">Trực tiếp tại cơ sở chính</option>
+              <option value="Online qua Zoom/Google Meet">Online qua Google Meet</option>
+              <option value="Trực tiếp tại Hội trường B">Trực tiếp tại Hội trường B</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-medium text-ink mb-1">Chuyên viên phụ trách</label>
+            <select id="svc-form-counselor" class="w-full px-3 py-2 border border-card-border rounded-lg focus:outline-none focus:border-sage text-ink text-xs bg-white">
+              <option value="TS. Nguyễn Minh Hà">TS. Nguyễn Minh Hà</option>
+              <option value="ThS. Trần Quang Duy">ThS. Trần Quang Duy</option>
+              <option value="ThS. Phạm Thu Trang">ThS. Phạm Thu Trang</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-medium text-ink mb-1">Mô tả tóm tắt</label>
+          <textarea id="svc-form-desc" rows="3" required placeholder="Nhóm 6-8 sinh viên cùng trao đổi với chuyên viên điều phối..." class="w-full px-3 py-2 border border-card-border rounded-lg focus:outline-none focus:border-sage text-ink text-xs"></textarea>
+        </div>
+
+        <div class="pt-3 border-t border-card-border flex justify-end gap-2">
+          <button type="button" onclick="App.closeAdminServiceModal()" class="px-4 py-2 border border-card-border rounded-lg hover:bg-paper">
+            Hủy
+          </button>
+          <button type="submit" class="px-4 py-2 bg-sage hover:bg-sage-deep text-white font-medium rounded-lg shadow-sm">
+            Lưu dịch vụ
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Hub -->
+  <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none">
+    <!-- Injected dynamically -->
+  </div>
+
+  <!-- Application Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/ai-engine.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
+

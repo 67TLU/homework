@@ -1,0 +1,155 @@
+:root {
+  --color-sage: #2F7A66;
+  --color-sage-deep: #1C5344;
+  --color-amber-ai: #D79B34;
+  --color-clay-alert: #C4643F;
+  --color-ink: #16241D;
+  --color-paper: #F2EEE6;
+  --color-sage-tint: #DCEAE3;
+  --color-sky-info: #3B6E92;
+  --color-border: #E3DDD3;
+  --color-card-bg: #FFFFFF;
+}
+
+body {
+  font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .font-serif-custom {
+  font-family: 'Fraunces', Georgia, serif;
+}
+
+/* Status Pill Rules from Slide 15: Dot + Text */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.status-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* Status Styles */
+.status-confirmed, .status-active {
+  background-color: #E8F5EE;
+  color: #1A6348;
+}
+.status-confirmed .status-dot, .status-active .status-dot {
+  background-color: #2F7A66;
+}
+
+.status-pending, .status-upcoming {
+  background-color: #FEF7EA;
+  color: #A66A12;
+}
+.status-pending .status-dot, .status-upcoming .status-dot {
+  background-color: #D79B34;
+}
+
+.status-processing {
+  background-color: #EDF5FA;
+  color: #235475;
+}
+.status-processing .status-dot {
+  background-color: #3B6E92;
+}
+
+.status-cancelled, .status-rejected, .status-suspended {
+  background-color: #FDF0EB;
+  color: #A3401F;
+}
+.status-cancelled .status-dot, .status-rejected .status-dot, .status-suspended .status-dot {
+  background-color: #C4643F;
+}
+
+.status-archived, .status-closed {
+  background-color: #EDEAE4;
+  color: #5A5E5B;
+}
+.status-archived .status-dot, .status-closed .status-dot {
+  background-color: #8C908D;
+}
+
+/* AI Badge Styling */
+.badge-ai {
+  background-color: #FFF9ED;
+  color: #9E6A10;
+  border: 1px solid #F5DFB8;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.04);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(47, 122, 102, 0.25);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(47, 122, 102, 0.5);
+}
+
+/* Transitions */
+.drawer-transition {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+
+/* Interactive elements */
+.interactive-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.interactive-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(22, 36, 29, 0.08), 0 8px 10px -6px rgba(22, 36, 29, 0.04);
+  border-color: #CBD5CD;
+}
+
+/* Device Simulator Modes */
+.viewport-mobile {
+  max-width: 390px !important;
+  height: 844px !important;
+  max-height: calc(100vh - 80px) !important;
+  margin: 20px auto !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border-radius: 38px;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  border: 8px solid #2A3630;
+}
+
+.viewport-tablet {
+  max-width: 820px !important;
+  height: 1180px !important;
+  max-height: calc(100vh - 80px) !important;
+  margin: 20px auto !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  border: 6px solid #2A3630;
+}
+
+/* Print/Clean media */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
