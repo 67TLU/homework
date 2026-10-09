@@ -1,9 +1,16 @@
-/* STUDENT DASHBOARD SPECIFIC STYLES */
+/**
+ * STUDENT DASHBOARD PAGE - Module JS
+ */
 
-.dashboard-card {
-  transition: all 0.2s ease;
+const StudentDashboardPage = {
+  init() {
+    console.log('Student Dashboard page initialized');
+  }
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => StudentDashboardPage.init());
+} else {
+  StudentDashboardPage.init();
 }
 
-.dashboard-card:hover {
-  transform: translateY(-2px);
-}

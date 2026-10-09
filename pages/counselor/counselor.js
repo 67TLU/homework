@@ -1,9 +1,16 @@
-/* COUNSELOR PAGE SPECIFIC STYLES */
+/**
+ * COUNSELOR PAGE - Module JS
+ */
 
-.counselor-card {
-  transition: all 0.2s ease;
+const CounselorPage = {
+  init() {
+    console.log('Counselor page initialized');
+  }
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => CounselorPage.init());
+} else {
+  CounselorPage.init();
 }
 
-.counselor-card:hover {
-  transform: translateY(-2px);
-}

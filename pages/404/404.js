@@ -1,5 +1,16 @@
-/* 404 PAGE SPECIFIC STYLES */
+/**
+ * 404 PAGE - Module JS
+ */
 
-.not-found-shell {
-  min-height: 60vh;
+const NotFoundPage = {
+  init() {
+    console.log('404 page initialized');
+  }
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => NotFoundPage.init());
+} else {
+  NotFoundPage.init();
 }
+

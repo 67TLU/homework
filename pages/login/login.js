@@ -1,5 +1,16 @@
-/* LOGIN PAGE SPECIFIC STYLES */
+/**
+ * LOGIN PAGE - Module JS
+ */
 
-.login-shell {
-  min-height: 70vh;
+const LoginPage = {
+  init() {
+    console.log('Login page initialized');
+  }
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => LoginPage.init());
+} else {
+  LoginPage.init();
 }
+

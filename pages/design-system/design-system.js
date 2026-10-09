@@ -1,9 +1,16 @@
-/* DESIGN SYSTEM SPECIFIC STYLES */
+/**
+ * DESIGN SYSTEM PAGE - Module JS
+ */
 
-.design-token {
-  transition: all 0.2s ease;
+const DesignSystemPage = {
+  init() {
+    console.log('Design System page initialized');
+  }
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => DesignSystemPage.init());
+} else {
+  DesignSystemPage.init();
 }
 
-.design-token:hover {
-  transform: translateY(-2px);
-}

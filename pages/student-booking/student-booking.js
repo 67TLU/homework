@@ -1,9 +1,16 @@
-/* STUDENT BOOKING SPECIFIC STYLES */
+/**
+ * STUDENT BOOKING PAGE - Module JS
+ */
 
-.booking-card {
-  transition: all 0.2s ease;
+const StudentBookingPage = {
+  init() {
+    console.log('Student Booking page initialized');
+  }
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => StudentBookingPage.init());
+} else {
+  StudentBookingPage.init();
 }
 
-.booking-card:hover {
-  transform: translateY(-2px);
-}

@@ -1,5 +1,16 @@
-/* 403 PAGE SPECIFIC STYLES */
+/**
+ * 403 PAGE - Module JS
+ */
 
-.forbidden-shell {
-  min-height: 60vh;
+const ForbiddenPage = {
+  init() {
+    console.log('403 page initialized');
+  }
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => ForbiddenPage.init());
+} else {
+  ForbiddenPage.init();
 }
+

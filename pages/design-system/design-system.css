@@ -1,24 +1,9 @@
-<div class="space-y-10">
-  <div class="bg-white p-8 rounded-3xl border border-card-border shadow-sm space-y-2">
-    <span class="text-xs uppercase font-bold tracking-wider text-sage">SLIDE 15 · DESIGN SYSTEM</span>
-    <h2 class="font-serif text-3xl font-bold text-ink">Ngôn ngữ thiết kế dùng chung</h2>
-    <p class="text-xs text-ink/70 leading-relaxed max-w-3xl">Nguyên tắc cốt lõi: <strong>serif (Fraunces)</strong> cho tiêu đề mang cảm xúc, <strong>sans (Be Vietnam Pro)</strong> cho vận hành. Màu trạng thái luôn đi kèm <strong>chấm tròn + chữ</strong>.</p>
-  </div>
+/* DESIGN SYSTEM SPECIFIC STYLES */
 
-  <div class="bg-white p-8 rounded-3xl border border-card-border shadow-sm space-y-4">
-    <div class="flex items-center justify-between">
-      <h3 class="font-serif text-xl font-bold text-ink">Bảng màu thương hiệu (8 Tokens)</h3>
-      <span class="text-xs font-mono text-ink/50">8 TOKENS</span>
-    </div>
-    <div class="grid grid-cols-2 @sm:grid-cols-4 gap-4 pt-2">
-      <div class="rounded-2xl overflow-hidden border border-card-border shadow-xs"><div class="h-20 bg-[#2F7A66] flex items-end p-3 text-white"><span class="font-mono text-xs font-bold">#2F7A66</span></div><div class="p-3 bg-white"><div class="font-semibold text-xs text-ink">Sage</div></div></div>
-      <div class="rounded-2xl overflow-hidden border border-card-border shadow-xs"><div class="h-20 bg-[#1C5344] flex items-end p-3 text-white"><span class="font-mono text-xs font-bold">#1C5344</span></div><div class="p-3 bg-white"><div class="font-semibold text-xs text-ink">Sage Deep</div></div></div>
-      <div class="rounded-2xl overflow-hidden border border-card-border shadow-xs"><div class="h-20 bg-[#D79B34] flex items-end p-3 text-ink"><span class="font-mono text-xs font-bold">#D79B34</span></div><div class="p-3 bg-white"><div class="font-semibold text-xs text-ink">Amber · AI</div></div></div>
-      <div class="rounded-2xl overflow-hidden border border-card-border shadow-xs"><div class="h-20 bg-[#C4643F] flex items-end p-3 text-white"><span class="font-mono text-xs font-bold">#C4643F</span></div><div class="p-3 bg-white"><div class="font-semibold text-xs text-ink">Clay · Alert</div></div></div>
-      <div class="rounded-2xl overflow-hidden border border-card-border shadow-xs"><div class="h-20 bg-[#16241D] flex items-end p-3 text-white"><span class="font-mono text-xs font-bold">#16241D</span></div><div class="p-3 bg-white"><div class="font-semibold text-xs text-ink">Ink</div></div></div>
-      <div class="rounded-2xl overflow-hidden border border-card-border shadow-xs"><div class="h-20 bg-[#F2EEE6] flex items-end p-3 text-ink border-b border-card-border"><span class="font-mono text-xs font-bold">#F2EEE6</span></div><div class="p-3 bg-white"><div class="font-semibold text-xs text-ink">Paper</div></div></div>
-      <div class="rounded-2xl overflow-hidden border border-card-border shadow-xs"><div class="h-20 bg-[#DCEAE3] flex items-end p-3 text-ink"><span class="font-mono text-xs font-bold">#DCEAE3</span></div><div class="p-3 bg-white"><div class="font-semibold text-xs text-ink">Sage Tint</div></div></div>
-      <div class="rounded-2xl overflow-hidden border border-card-border shadow-xs"><div class="h-20 bg-[#3B6E92] flex items-end p-3 text-white"><span class="font-mono text-xs font-bold">#3B6E92</span></div><div class="p-3 bg-white"><div class="font-semibold text-xs text-ink">Sky · Info</div></div></div>
-    </div>
-  </div>
-</div>
+.design-token {
+  transition: all 0.2s ease;
+}
+
+.design-token:hover {
+  transform: translateY(-2px);
+}

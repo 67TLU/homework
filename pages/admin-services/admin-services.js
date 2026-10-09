@@ -1,5 +1,16 @@
-/* ADMIN SERVICES SPECIFIC STYLES */
+/**
+ * ADMIN SERVICES PAGE - Module JS
+ */
 
-.service-table-row:hover {
-  background: rgba(242, 238, 230, 0.7);
+const AdminServicesPage = {
+  init() {
+    console.log('Admin Services page initialized');
+  }
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => AdminServicesPage.init());
+} else {
+  AdminServicesPage.init();
 }
+

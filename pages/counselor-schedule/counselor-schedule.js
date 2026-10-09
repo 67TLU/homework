@@ -1,5 +1,16 @@
-/* COUNSELOR SCHEDULE SPECIFIC STYLES */
+/**
+ * COUNSELOR SCHEDULE PAGE - Module JS
+ */
 
-.schedule-column {
-  transition: all 0.2s ease;
+const CounselorSchedulePage = {
+  init() {
+    console.log('Counselor Schedule page initialized');
+  }
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => CounselorSchedulePage.init());
+} else {
+  CounselorSchedulePage.init();
 }
+

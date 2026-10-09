@@ -1,5 +1,16 @@
-/* STUDENT APPOINTMENTS SPECIFIC STYLES */
+/**
+ * STUDENT APPOINTMENTS PAGE - Module JS
+ */
 
-.appointment-row:hover {
-  background: rgba(242, 238, 230, 0.7);
+const StudentAppointmentsPage = {
+  init() {
+    console.log('Student Appointments page initialized');
+  }
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => StudentAppointmentsPage.init());
+} else {
+  StudentAppointmentsPage.init();
 }
+
