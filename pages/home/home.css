@@ -1,0 +1,43 @@
+/* HOME PAGE SPECIFIC STYLES */
+
+.hero-gradient {
+  background: linear-gradient(135deg, #2F7A66 0%, #1C5344 100%);
+}
+
+.entry-card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.entry-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(47, 122, 102, 0.15);
+}
+
+.leaf-decoration {
+  opacity: 0.15;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+@media (min-width: 1024px) {
+  .leaf-decoration {
+    opacity: 0.25;
+  }
+}
+
+/* Animation cho hero text */
+.hero-title {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,16 @@
+
+/**
+ * 404 PAGE - Module JS
+ */
+
+const NotFoundPage = {
+  init() {
+    console.log('404 page initialized');
+  }
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => NotFoundPage.init());
+} else {
+  NotFoundPage.init();
+}

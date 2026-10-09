@@ -1,0 +1,15 @@
+
+ * LOGIN PAGE - Module JS
+ */
+
+const LoginPage = {
+  init() {
+    console.log('Login page initialized');
+  }
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => LoginPage.init());
+} else {
+  LoginPage.init();
+}
